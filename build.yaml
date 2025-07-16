@@ -1,0 +1,18 @@
+name: Build Kivy APK
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Use My Custom Buildozer Action
+        uses: rahul-aly/buildozer-action@main
+        with:
+          command: buildozer android debug
